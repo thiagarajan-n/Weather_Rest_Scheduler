@@ -23,7 +23,7 @@ public class TemperatureController {
 	@ResponseBody
 	@RequestMapping("/getAll")
 	public List<Temperature> getTemperature(@RequestParam("id")int cityId) {
-		return temp.findAll(cityId);
+		return temp.findAll(cityId, new PageRequest(0, 5));
 	}
 	
 	@ResponseBody

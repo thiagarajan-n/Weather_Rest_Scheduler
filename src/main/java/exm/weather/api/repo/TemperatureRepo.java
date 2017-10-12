@@ -10,8 +10,8 @@ import exm.weather.api.model.Temperature;
 
 public interface TemperatureRepo extends JpaRepository<Temperature, Integer> {
 
-	@Query("select T from Temperature T where T.city_id = :id limit 5")
-	List<Temperature> findAll(@Param("id")int id);
+	@Query("select T from Temperature T where T.city_id = :id")
+	List<Temperature> findAll(@Param("id")int id, Pageable pageable);
 	
 	@Query("select T from Temperature T where T.date = CURRENT_DATE and T.city_id = :id")
 	Temperature findByCity(@Param("id")int id);
